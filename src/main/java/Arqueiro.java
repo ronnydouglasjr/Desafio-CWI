@@ -5,13 +5,40 @@ public class Arqueiro extends Personagem {
 
     @Override
     public void atacar(Personagem[] personagens) {
-        for (int distancia = 3; distancia >= 1; distancia--) {
-            for (Personagem personagem : personagens) {
-                if (personagem != null && personagem.isSociedade() != this.isSociedade() && personagem.getConstituicao() > 0 && Math.abs(personagem.getPosicao() - this.getPosicao()) == distancia) {
-                    int dano = distancia * getAgilidade();
-                    personagem.setConstituicao(personagem.getConstituicao() - dano);
-                    System.out.println(this.getNome() + " atacou " + personagem.getNome() + " causando " + dano + " de dano!");
-                    return;
+        int posicaoAtual = -1;
+
+        for (int i = 0; i < personagens.length; i++) {
+            if (personagens[i] == this) {
+                posicaoAtual = i;
+                break;
+            }
+        }
+
+        if (posicaoAtual == -1) return;
+
+        if (this.isSociedade()) {
+
+            for (int distancia = 3; distancia >= 1; distancia--) {
+                int posicaoAlvo = posicaoAtual + distancia;
+                if (posicaoAlvo < personagens.length) {
+                    Personagem personagem = personagens[posicaoAlvo];
+                    if (personagem != null && personagem.isSociedade() != this.isSociedade() && personagem.getConstituicao() > 0) {
+                        int dano = distancia * getAgilidade();
+                        personagem.setConstituicao(getConstituicao() - dano);
+                        break;
+                    }
+                }
+            }
+        } else {
+            for (int distancia = 3; distancia >= 1; distancia--) {
+                int posicaoAlvo = posicaoAtual - distancia;
+                if (posicaoAlvo >= 0) {
+                    Personagem personagem = personagens[posicaoAlvo];
+                    if (personagem != null && personagem.isSociedade() != this.isSociedade() && personagem.getConstituicao() > 0) {
+                        int dano = distancia * getAgilidade();
+                        personagem.setConstituicao(getConstituicao() - dano);
+                        break;
+                    }
                 }
             }
         }
@@ -19,22 +46,34 @@ public class Arqueiro extends Personagem {
 
     @Override
     public void mover(Personagem[] personagens) {
-        int novaPosicao1 = this.getPosicao() + (this.isSociedade() ? 1 : -1);
-        int novaPosicao2 = this.getPosicao() + (this.isSociedade() ? 2 : -2);
-        boolean segundaPosicaoLivre = true;
-        for (Personagem personagem : personagens) {
-            if (personagem != null && personagem.getPosicao() == novaPosicao2 && personagem.getConstituicao() > 0) {
-                segundaPosicaoLivre = false;
+        int posicaoAtual = -1;
+
+        for (int i = 0; i < personagens.length; i++) {
+            if (personagens[i] == this) {
+                posicaoAtual = i;
                 break;
             }
         }
 
-        if (segundaPosicaoLivre && novaPosicao2 >= 0 && novaPosicao2 < 10) {
-            this.setPosicao(novaPosicao2);
-            System.out.println(this.getNome() + " moveu para a posição " + novaPosicao2);
-        } else if (novaPosicao1 >= 0 && novaPosicao1 < 10) {
-            this.setPosicao(novaPosicao1);
-            System.out.println(this.getNome() + " moveu para a posição " + novaPosicao1);
+        if (posicaoAtual == -1) return;
+
+        if (this.isSociedade()) {
+            if (posicaoAtual + 2 < personagens.length && personagens[posicaoAtual + 2] == null) {
+                personagens[posicaoAtual] = null;
+                personagens[posicaoAtual + 2] = this;
+            } else if (posicaoAtual + 1 < personagens.length && personagens[posicaoAtual + 1] == null) {
+                personagens[posicaoAtual] = null;
+                personagens[posicaoAtual + 1] = this;
+            }
+        } else {
+
+            if (posicaoAtual - 2 >= 0 && personagens[posicaoAtual - 2] == null) {
+                personagens[posicaoAtual] = null;
+                personagens[posicaoAtual - 2] = this;
+            } else if (posicaoAtual - 1 >= 0 && personagens[posicaoAtual - 1] == null) {
+                personagens[posicaoAtual] = null;
+                personagens[posicaoAtual - 1] = this;
+            }
         }
     }
 }

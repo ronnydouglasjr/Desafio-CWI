@@ -15,7 +15,7 @@ public class Mapa {
             if (personagem == null || personagem.getConstituicao() <= 0) {
                 sb.append(" |");
             } else {
-                sb.append(personagem.getNome().charAt(0)).append("|");
+                sb.append(personagem.toString().charAt(0)).append("|");
             }
         }
         return sb.toString();

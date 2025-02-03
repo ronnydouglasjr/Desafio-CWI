@@ -7,7 +7,6 @@ public class Simulador {
 
     public void simular() throws SauronDominaOMundoException {
         while (true) {
-            // Verifica se a Sociedade venceu
             for (int i = 0; i < 10; i++) {
                 Personagem personagem = mapa.buscarCasa(i);
                 if (personagem != null && personagem.isSociedade() && i == 9) {
@@ -16,7 +15,6 @@ public class Simulador {
                 }
             }
 
-            // Verifica se Sauron venceu
             boolean sociedadeExiste = false;
             for (int i = 0; i < 10; i++) {
                 Personagem personagem = mapa.buscarCasa(i);
@@ -29,7 +27,6 @@ public class Simulador {
                 throw new SauronDominaOMundoException("A humanidade sofre perante a tirania de Sauron.");
             }
 
-            // Realiza o turno de cada personagem
             for (int i = 0; i < 10; i++) {
                 Personagem personagem = mapa.buscarCasa(i);
                 if (personagem != null && personagem.getConstituicao() > 0) {
@@ -41,7 +38,6 @@ public class Simulador {
                 }
             }
 
-            // Exibe o mapa após cada rodada
             System.out.println("Mapa: " + mapa.exibir());
         }
     }

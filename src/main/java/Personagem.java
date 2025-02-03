@@ -5,7 +5,7 @@ public abstract class Personagem {
     private int inteligencia;
     private int constituicao;
     private boolean sociedade;
-    private int posicao;
+
 
     public Personagem(String nome, int forca, int agilidade, int inteligencia, int constituicao, boolean sociedade) {
         this.nome = nome;
@@ -62,14 +62,6 @@ public abstract class Personagem {
 
     public void setSociedade(boolean sociedade) {
         this.sociedade = sociedade;
-    }
-
-    public int getPosicao() {
-        return posicao;
-    }
-
-    public void setPosicao(int posicao) {
-        this.posicao = posicao;
     }
 
     public abstract void atacar(Personagem[] personagems);
