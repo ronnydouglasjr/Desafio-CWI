@@ -1,4 +1,4 @@
-public class Legolas extends Guerreiro implements Elfo {
+public class Legolas extends Arqueiro implements Elfo {
     public Legolas() {
         super("Legolas", 5, 10, 6, 80, true);
     }

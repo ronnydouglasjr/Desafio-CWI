@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Mapa {
     private Personagem[] casas;
 
@@ -9,13 +11,33 @@ public class Mapa {
         return casas;
     }
 
+    public void remover(int i){
+        casas[i] = null;
+    }
+
     public String exibir() {
         StringBuilder sb = new StringBuilder("|");
         for (Personagem personagem : casas) {
-            if (personagem == null || personagem.getConstituicao() <= 0) {
+            if (personagem == null) {
+                sb.append(" |");
+            } else if (personagem.getConstituicao() <= 0) {
+                sb.append(" ");
+                sb.append(personagem.toString().charAt(0));
                 sb.append(" |");
             } else {
                 sb.append(personagem.toString().charAt(0)).append("|");
+            }
+        }
+        return sb.toString();
+    }
+
+    public String exibirVida() {
+        StringBuilder sb = new StringBuilder("|");
+        for (Personagem personagem : casas) {
+            if (personagem == null) {
+                sb.append(" |");
+            } else {
+                sb.append(personagem.getConstituicao()).append("|");
             }
         }
         return sb.toString();
@@ -48,7 +70,7 @@ public class Mapa {
             return null;
         }
         Personagem personagem = casas[posicao];
-        if (personagem != null && personagem.getConstituicao() > 0) {
+        if (personagem != null) {
             return personagem;
         }
         return null;

@@ -18,13 +18,13 @@ public class Arqueiro extends Personagem {
 
         if (this.isSociedade()) {
 
-            for (int distancia = 3; distancia >= 1; distancia--) {
+            for (int distancia = 1; distancia <= 3; distancia++) {
                 int posicaoAlvo = posicaoAtual + distancia;
                 if (posicaoAlvo < personagens.length) {
-                    Personagem personagem = personagens[posicaoAlvo];
-                    if (personagem != null && personagem.isSociedade() != this.isSociedade() && personagem.getConstituicao() > 0) {
+                    Personagem defensor = personagens[posicaoAlvo];
+                    if (defensor != null && defensor.isSociedade() != this.isSociedade() && defensor.getConstituicao() > 0) {
                         int dano = distancia * getAgilidade();
-                        personagem.setConstituicao(getConstituicao() - dano);
+                        defensor.setConstituicao(defensor.getConstituicao() - dano);
                         break;
                     }
                 }
@@ -33,10 +33,10 @@ public class Arqueiro extends Personagem {
             for (int distancia = 3; distancia >= 1; distancia--) {
                 int posicaoAlvo = posicaoAtual - distancia;
                 if (posicaoAlvo >= 0) {
-                    Personagem personagem = personagens[posicaoAlvo];
-                    if (personagem != null && personagem.isSociedade() != this.isSociedade() && personagem.getConstituicao() > 0) {
+                    Personagem defensor = personagens[posicaoAlvo];
+                    if (defensor != null && defensor.isSociedade() != this.isSociedade() && defensor.getConstituicao() > 0) {
                         int dano = distancia * getAgilidade();
-                        personagem.setConstituicao(getConstituicao() - dano);
+                        defensor.setConstituicao(defensor.getConstituicao() - dano);
                         break;
                     }
                 }
@@ -47,6 +47,8 @@ public class Arqueiro extends Personagem {
     @Override
     public void mover(Personagem[] personagens) {
         int posicaoAtual = -1;
+        boolean inimigoExite = true;
+
 
         for (int i = 0; i < personagens.length; i++) {
             if (personagens[i] == this) {
@@ -57,20 +59,15 @@ public class Arqueiro extends Personagem {
 
         if (posicaoAtual == -1) return;
 
+
+
         if (this.isSociedade()) {
-            if (posicaoAtual + 2 < personagens.length && personagens[posicaoAtual + 2] == null) {
-                personagens[posicaoAtual] = null;
-                personagens[posicaoAtual + 2] = this;
-            } else if (posicaoAtual + 1 < personagens.length && personagens[posicaoAtual + 1] == null) {
+            if (posicaoAtual + 1 < personagens.length && personagens[posicaoAtual + 1] == null) {
                 personagens[posicaoAtual] = null;
                 personagens[posicaoAtual + 1] = this;
             }
         } else {
-
-            if (posicaoAtual - 2 >= 0 && personagens[posicaoAtual - 2] == null) {
-                personagens[posicaoAtual] = null;
-                personagens[posicaoAtual - 2] = this;
-            } else if (posicaoAtual - 1 >= 0 && personagens[posicaoAtual - 1] == null) {
+            if (posicaoAtual - 1 >= 0 && personagens[posicaoAtual - 1] == null) {
                 personagens[posicaoAtual] = null;
                 personagens[posicaoAtual - 1] = this;
             }

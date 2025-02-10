@@ -1,12 +1,11 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 
 public class MainTest {
-
     @Test
-    public void deveVencerSociedadeQuandoAragornELegolasBatalharemContraOrcEGoblim() throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException, PersonagemNaoEncontradoNoMapaException {
+    public void deveVencerSociedadeQuandoAragornELegolasBatalharemContraOrcEGoblim()
+            throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException, PersonagemNaoEncontradoNoMapaException {
         // Início:  "|A|L| | | | | |O| |M|"
         String resultadoEsperado = "| | | | |A| | | | |L|";
 
@@ -22,6 +21,8 @@ public class MainTest {
         mapa.inserir(7, orc);
         mapa.inserir(9, goblim);
         simulador.simular();
+
+        System.out.println(mapa.exibir());
 
         Assert.assertEquals(resultadoEsperado, mapa.exibir());
     }
@@ -99,4 +100,35 @@ public class MainTest {
         mapa.inserir(9, urukhai);
         simulador.simular();
     }
+
+    @Test
+    public void testeMago() throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException, PersonagemNaoEncontradoNoMapaException {
+        Gandalf gandalf = new Gandalf();
+        Saruman saruman = new Saruman();
+
+        Mapa mapa = new Mapa();
+        Simulador simulador = new Simulador(mapa);
+
+        mapa.inserir(0, gandalf);
+        mapa.inserir(9, saruman);
+        simulador.simular();
+
+        System.out.println(mapa.exibir());
+    }
+
+    @Test
+    public void testeArqueiro() throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException {
+        Legolas legolas = new Legolas();
+        Goblim goblim = new Goblim();
+
+        Mapa mapa = new Mapa();
+        Simulador simulador = new Simulador(mapa);
+
+        mapa.inserir(0, legolas);
+        mapa.inserir(9, goblim);
+        simulador.simular();
+
+        System.out.println(mapa.exibir());
+    }
+
 }
