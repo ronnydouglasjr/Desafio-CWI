@@ -8,7 +8,7 @@ public class Simulador {
         this.mapa = mapa;
     }
 
-    public static int[] obterProximaJogada(String[] tabuleiro, Integer atual, Integer anterior, int ladoEsquerdoInicial, int ladoDireitoInicial) {
+    public static int[] obterProximaJogada(Personagem[] tabuleiro, Integer atual, Integer anterior, int ladoEsquerdoInicial, int ladoDireitoInicial) {
         List<Integer> ladoEsquerdo = new ArrayList<>();
         for (int i = ladoEsquerdoInicial; i >= 0; i--) {
             ladoEsquerdo.add(i);
@@ -21,35 +21,35 @@ public class Simulador {
 
         if (atual == null) {
             for (int i : ladoEsquerdo) {
-                if (!tabuleiro[i].isEmpty()) {
-                    return new int[]{i, -1}; // -1 indica que não há anterior
+                if (tabuleiro[i] != null) {
+                    return new int[]{i, -1};
                 }
             }
         } else if (anterior == null) {
             for (int i : ladoDireito) {
-                if (!tabuleiro[i].isEmpty()) {
+                if (tabuleiro[i] != null) {
                     return new int[]{i, atual};
                 }
             }
         } else if (atual > ladoEsquerdoInicial) {
             for (int i : ladoEsquerdo) {
-                if (!tabuleiro[i].isEmpty() && i < anterior) {
+                if (tabuleiro[i] != null && i < anterior) {
                     return new int[]{i, atual};
                 }
             }
             for (int i : ladoEsquerdo) {
-                if (!tabuleiro[i].isEmpty()) {
+                if (tabuleiro[i] != null) {
                     return new int[]{i, atual};
                 }
             }
         } else if (atual < ladoDireitoInicial) {
             for (int i : ladoDireito) {
-                if (!tabuleiro[i].isEmpty() && i > anterior) {
+                if (tabuleiro[i] != null && i > anterior) {
                     return new int[]{i, atual};
                 }
             }
             for (int i : ladoDireito) {
-                if (!tabuleiro[i].isEmpty()) {
+                if (tabuleiro[i] != null) {
                     return new int[]{i, atual};
                 }
             }
@@ -57,7 +57,6 @@ public class Simulador {
 
         return new int[]{-1, -1}; // Caso não encontre uma jogada válida
     }
-
 
     public void simular() throws SauronDominaOMundoException {
         boolean verificador = true;
@@ -71,6 +70,8 @@ public class Simulador {
                     System.out.println("-----------Rodada-----------");
                     System.out.println("Mapa: " + mapa.exibir());
                     System.out.println("Vida: " + mapa.exibirVida());
+
+                    obterProximaJogada(mapa.getPersonagens(), 4,10,0,9);
 
                     // Ataca
                     personagem.atacar(mapa.getPersonagens());
