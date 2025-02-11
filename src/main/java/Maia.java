@@ -1,4 +1,5 @@
 public interface Maia {
-    public void ressucitar();
-    String fala();
+  public void ressucitar();
+
+  String fala();
 }

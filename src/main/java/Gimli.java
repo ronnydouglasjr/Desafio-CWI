@@ -1,23 +1,24 @@
-public class Gimli extends Guerreiro implements Anao{
-    private int dose;
-    public Gimli() {
-        super("Gimli", 9, 2,4, 60, true);
-    }
+public class Gimli extends Guerreiro implements Anao {
+  private int dose;
 
-    @Override
-    public int beber() {
-         return dose++;
-    }
+  public Gimli() {
+    super("Gimli", 9, 2, 4, 60, true);
+  }
 
-    @Override
-    public String falar() {
-        if (beber() >= 3) {
-            return "What did I say? He can't hold his liquor!";
-        }
-        return "Let them come. There is one Dwarf yet in Moria who still draws breath.";
-    }
+  @Override
+  public int beber() {
+    return dose++;
+  }
 
-    public String toString(){
-        return "I";
+  @Override
+  public String falar() {
+    if (beber() >= 3) {
+      return "What did I say? He can't hold his liquor!";
     }
+    return "Let them come. There is one Dwarf yet in Moria who still draws breath.";
+  }
+
+  public String toString() {
+    return "I";
+  }
 }

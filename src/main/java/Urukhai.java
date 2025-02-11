@@ -1,24 +1,24 @@
 public class Urukhai extends Guerreiro implements Monstro, Humano {
-    public Urukhai() {
-        super("Urukhai", 8,6,3,45, false);
-    }
+  public Urukhai() {
+    super("Urukhai", 8, 6, 3, 45, false);
+  }
 
-    @Override
-    public String falar() {
-        return "Looks like meat's back on the menu boys!";
-    }
+  @Override
+  public String falar() {
+    return "Looks like meat's back on the menu boys!";
+  }
 
-    @Override
-    public void envelhecer() {
-        setConstituicao(2);
-    }
+  @Override
+  public void envelhecer() {
+    setConstituicao(2);
+  }
 
-    @Override
-    public String grunhido() {
-        return "Uuurrrrrr";
-    }
+  @Override
+  public String grunhido() {
+    return "Uuurrrrrr";
+  }
 
-    public String toString(){
-        return "U";
-    }
+  public String toString() {
+    return "U";
+  }
 }

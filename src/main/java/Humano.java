@@ -1,4 +1,5 @@
 public interface Humano {
-    public String falar();
-    public void envelhecer();
+  public String falar();
+
+  public void envelhecer();
 }
