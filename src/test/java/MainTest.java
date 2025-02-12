@@ -56,9 +56,7 @@ public class MainTest {
 
   @Test(expected = SauronDominaOMundoException.class)
   public void deveLancarSauronDominaOMundoExceptionQuandoInimigosDerrotaremMembrosDaSociedade()
-      throws PersonagemJaEstaNoMapaException,
-          PosicaoOcupadaException,
-          SauronDominaOMundoException {
+      throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException {
     // Início: "| | |I| | | | |U|O|M|"
     // Fim:    "| | | | | | |O|M| | |"
 
@@ -78,9 +76,7 @@ public class MainTest {
 
   @Test
   public void deveVencerSociedadeQuandoGandalfBatalharSozinhoContraSaruman()
-      throws PersonagemJaEstaNoMapaException,
-          PosicaoOcupadaException,
-          SauronDominaOMundoException {
+      throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException {
     // Início:  "|G| | | | | | | | |S|"
     String resultadoEsperado = "| | | | | | | | | |G|";
 
@@ -98,9 +94,7 @@ public class MainTest {
 
   @Test
   public void deveVencerSociedadeQuandoLegonasBatalharContraUrukhaiEOrc()
-      throws PersonagemJaEstaNoMapaException,
-          PosicaoOcupadaException,
-          SauronDominaOMundoException {
+      throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException {
     // Início:  "|L| | | | | | | |U|O|"
     String resultadoEsperado = "| | | | | | | | | |L|";
 
@@ -120,9 +114,7 @@ public class MainTest {
 
   @Test(expected = SauronDominaOMundoException.class)
   public void deveLancarSauronDominaOMundoExceptionQuandoLegolasBatalharSozinhoContraOrcEUrukhai()
-      throws PersonagemJaEstaNoMapaException,
-          PosicaoOcupadaException,
-          SauronDominaOMundoException {
+      throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException {
     // Início:  "|L| | | | | | |U|O|S|"
     // Fim:     "| | | | | | | | | |S|";
 
@@ -162,11 +154,9 @@ public class MainTest {
 
   @Test
   public void deveVencerSociedadeNaBatalhaMagoContraMago()
-    // Início:  "|G| | | | | | | | |S|"
-    // Fim:     "| | | | | | | | | |G|";
-      throws PersonagemJaEstaNoMapaException,
-          PosicaoOcupadaException,
-          SauronDominaOMundoException {
+      // Início:  "|G| | | | | | | | |S|"
+      // Fim:     "| | | | | | | | | |G|";
+      throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException {
     Gandalf gandalf = new Gandalf();
     Saruman saruman = new Saruman();
 

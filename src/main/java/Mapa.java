@@ -49,13 +49,12 @@ public class Mapa {
 
     for (int i = 0; i < casas.length; i++) {
       if (casas[i] != null && casas[i].equals(personagem) && casas[i].getConstituicao() > 0) {
-        throw new PersonagemJaEstaNoMapaException(
-            "Personagem " + personagem + " já está no mapa.");
+        throw new PersonagemJaEstaNoMapaException("Personagem " + personagem + " já está no mapa.");
       }
     }
     casas[posicao] = personagem;
   }
-  
+
   public Personagem buscarCasa(int posicao) {
     if (posicao < 0 || posicao >= casas.length) {
       return null;
