@@ -4,7 +4,7 @@ public class Saruman extends Mago implements Maia {
   }
 
   @Override
-  public String fala() {
+  public String falar() {
     return "Against the power of Mordor there can be no victory.";
   }
 

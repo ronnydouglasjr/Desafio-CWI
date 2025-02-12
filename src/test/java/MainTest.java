@@ -4,7 +4,7 @@ import org.junit.Test;
 public class MainTest {
 
   @Test
-  public void teste1()
+  public void deveVencerSociedadeQuandoAragornELegolasBatalharemContraUrukhaiOrcEGoblim()
       throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException {
     // Início:  "|A| |I | | | | |U|O|M|"
     String resultadoEsperado = "| | | | | | | | | |A|";
@@ -58,9 +58,8 @@ public class MainTest {
   public void deveLancarSauronDominaOMundoExceptionQuandoInimigosDerrotaremMembrosDaSociedade()
       throws PersonagemJaEstaNoMapaException,
           PosicaoOcupadaException,
-          SauronDominaOMundoException,
-          PersonagemNaoEncontradoNoMapaException {
-    // Início: "|A| |I| | | | |U|O|M|"
+          SauronDominaOMundoException {
+    // Início: "| | |I| | | | |U|O|M|"
     // Fim:    "| | | | | | |O|M| | |"
 
     Gimli gimli = new Gimli();
@@ -81,8 +80,7 @@ public class MainTest {
   public void deveVencerSociedadeQuandoGandalfBatalharSozinhoContraSaruman()
       throws PersonagemJaEstaNoMapaException,
           PosicaoOcupadaException,
-          SauronDominaOMundoException,
-          PersonagemNaoEncontradoNoMapaException {
+          SauronDominaOMundoException {
     // Início:  "|G| | | | | | | | |S|"
     String resultadoEsperado = "| | | | | | | | | |G|";
 
@@ -99,11 +97,10 @@ public class MainTest {
   }
 
   @Test
-  public void teste2()
+  public void deveVencerSociedadeQuandoLegonasBatalharContraUrukhaiEOrc()
       throws PersonagemJaEstaNoMapaException,
           PosicaoOcupadaException,
-          SauronDominaOMundoException,
-          PersonagemNaoEncontradoNoMapaException {
+          SauronDominaOMundoException {
     // Início:  "|L| | | | | | | |U|O|"
     String resultadoEsperado = "| | | | | | | | | |L|";
 
@@ -125,26 +122,22 @@ public class MainTest {
   public void deveLancarSauronDominaOMundoExceptionQuandoLegolasBatalharSozinhoContraOrcEUrukhai()
       throws PersonagemJaEstaNoMapaException,
           PosicaoOcupadaException,
-          SauronDominaOMundoException,
-          PersonagemNaoEncontradoNoMapaException {
-    // Início:  "|L| | | | | | | |U|O|"
-    // Fim:     "| | | | | |U| | | | |";
+          SauronDominaOMundoException {
+    // Início:  "|L| | | | | | |U|O|S|"
+    // Fim:     "| | | | | | | | | |S|";
 
     Legolas legolas = new Legolas();
     Orc orc = new Orc();
-    Urukhai urukhai4 = new Urukhai();
     Urukhai urukhai = new Urukhai();
-    Urukhai urukhai2 = new Urukhai();
-    Urukhai urukhai3 = new Urukhai();
+    Saruman saruman = new Saruman();
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
     mapa.inserir(0, legolas);
-    mapa.inserir(5, urukhai2);
-    mapa.inserir(6, urukhai4);
-    mapa.inserir(7, urukhai3);
+    mapa.inserir(7, orc);
     mapa.inserir(8, urukhai);
-    mapa.inserir(9, orc);
+    mapa.inserir(9, saruman);
+
     simulador.simular();
   }
 
@@ -168,11 +161,12 @@ public class MainTest {
   }
 
   @Test
-  public void testeMago()
+  public void deveVencerSociedadeNaBatalhaMagoContraMago()
+    // Início:  "|G| | | | | | | | |S|"
+    // Fim:     "| | | | | | | | | |G|";
       throws PersonagemJaEstaNoMapaException,
           PosicaoOcupadaException,
-          SauronDominaOMundoException,
-          PersonagemNaoEncontradoNoMapaException {
+          SauronDominaOMundoException {
     Gandalf gandalf = new Gandalf();
     Saruman saruman = new Saruman();
 
@@ -187,7 +181,7 @@ public class MainTest {
   }
 
   @Test
-  public void testeArqueiro()
+  public void deveVencerSociedadeNaBatalhaArqueiroContraArqueiro()
       throws PersonagemJaEstaNoMapaException, PosicaoOcupadaException, SauronDominaOMundoException {
     Legolas legolas = new Legolas();
     Goblim goblim = new Goblim();

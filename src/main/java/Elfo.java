@@ -1,5 +1,5 @@
 public interface Elfo {
-  public String fala();
+  public String falar();
 
   public String falarElfico();
 }

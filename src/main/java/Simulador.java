@@ -94,10 +94,8 @@ public class Simulador {
         System.out.println("Mapa: " + mapa.exibir());
         System.out.println("Vida: " + mapa.exibirVida());
 
-        // Ataca
         personagem.atacar(mapa.getPersonagens());
 
-        // Move
         personagem.mover(mapa.getPersonagens());
       }
 

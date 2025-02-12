@@ -4,7 +4,7 @@ public class Legolas extends Arqueiro implements Elfo {
   }
 
   @Override
-  public String fala() {
+  public String falar() {
     return "They're taking the Hobbits to Isengard!";
   }
 

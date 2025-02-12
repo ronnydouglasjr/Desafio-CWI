@@ -57,7 +57,6 @@ public class Arqueiro extends Personagem {
   @Override
   public void mover(Personagem[] personagens) {
     int posicaoAtual = -1;
-    boolean inimigoExite = true;
 
     for (int i = 0; i < personagens.length; i++) {
       if (personagens[i] == this) {

@@ -50,22 +50,12 @@ public class Mapa {
     for (int i = 0; i < casas.length; i++) {
       if (casas[i] != null && casas[i].equals(personagem) && casas[i].getConstituicao() > 0) {
         throw new PersonagemJaEstaNoMapaException(
-            "Personagem " + personagem.toString() + " já está no mapa.");
+            "Personagem " + personagem + " já está no mapa.");
       }
     }
     casas[posicao] = personagem;
   }
-
-  public int buscarPosicao(Personagem personagem) throws PersonagemNaoEncontradoNoMapaException {
-    for (int i = 0; i < casas.length; i++) {
-      if (casas[i] != null && casas[i].equals(personagem) && casas[i].getConstituicao() > 0) {
-        return i;
-      }
-    }
-    throw new PersonagemNaoEncontradoNoMapaException(
-        "Personagem " + personagem.getNome() + " não encontrado no mapa.");
-  }
-
+  
   public Personagem buscarCasa(int posicao) {
     if (posicao < 0 || posicao >= casas.length) {
       return null;

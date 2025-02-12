@@ -21,28 +21,12 @@ public abstract class Personagem {
     this.sociedade = sociedade;
   }
 
-  public String getNome() {
-    return nome;
-  }
-
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
-
   public int getAgilidade() {
     return agilidade;
   }
 
-  public void setAgilidade(int agilidade) {
-    this.agilidade = agilidade;
-  }
-
   public int getInteligencia() {
     return inteligencia;
-  }
-
-  public void setInteligencia(int inteligencia) {
-    this.inteligencia = inteligencia;
   }
 
   public int getConstituicao() {
@@ -57,16 +41,8 @@ public abstract class Personagem {
     return forca;
   }
 
-  public void setForca(int forca) {
-    this.forca = forca;
-  }
-
   public boolean isSociedade() {
     return sociedade;
-  }
-
-  public void setSociedade(boolean sociedade) {
-    this.sociedade = sociedade;
   }
 
   public abstract void atacar(Personagem[] personagems);

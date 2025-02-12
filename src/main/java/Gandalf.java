@@ -4,7 +4,7 @@ public class Gandalf extends Mago implements Maia {
   }
 
   @Override
-  public String fala() {
+  public String falar() {
     return "A Wizard is never late, nor is he early. He arrives precisely when he means to.";
   }
 
