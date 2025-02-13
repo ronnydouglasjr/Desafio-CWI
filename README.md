@@ -1,6 +1,6 @@
 # Diagrama do projeto 
 
-![Print do Projeto parte](img/principal.png)
+![Print do Projeto parte](docs/principal.png)
 
 # Senhor dos Anéis
 

@@ -1,7 +1,7 @@
 package classes;
 
-import racas.Mago;
 import interfaces.Maia;
+import racas.Mago;
 
 public class Gandalf extends Mago implements Maia {
   public Gandalf() {

@@ -2,10 +2,9 @@ package simulador;
 
 import classes_abstrata.Personagem;
 import exceptions.SauronDominaOMundoException;
-import mapa.Mapa;
-
 import java.util.ArrayList;
 import java.util.List;
+import mapa.Mapa;
 
 public class Simulador {
   private Mapa mapa;

@@ -54,7 +54,9 @@ public class Mapa {
     }
 
     for (Personagem personagens : tabuleiro) {
-      if (personagens != null && personagens.equals(personagem) && personagens.getConstituicao() > 0) {
+      if (personagens != null
+          && personagens.equals(personagem)
+          && personagens.getConstituicao() > 0) {
         throw new PersonagemJaEstaNoMapaException("Personagem " + personagem + " já está no mapa.");
       }
     }

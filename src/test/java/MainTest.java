@@ -4,7 +4,6 @@ import exceptions.PersonagemNaoEncontradoNoMapaException;
 import exceptions.PosicaoOcupadaException;
 import exceptions.SauronDominaOMundoException;
 import mapa.Mapa;
-
 import org.junit.Assert;
 import org.junit.Test;
 import simulador.Simulador;
