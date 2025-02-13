@@ -1,3 +1,14 @@
+# Diagrama do projeto 
+
+## Parte 1 do diagrama
+![Print do Projeto parte](img/parte1.png)
+
+## Parte 2 do diagrama
+![Print do Projeto parte](img/parte2.png)
+
+## Parte 3 do diagrama
+![Print do Projeto parte](img/parte1.png)
+
 ![A Sociedade do Anel](https://www.intofilm.org/intofilm-production/scaledcropped/1096x548https%3A/s3-eu-west-1.amazonaws.com/images.cdn.filmclub.org/film__3930-the-lord-of-the-rings-the-fellowship-of-the-ring--hi_res-a207bd11.jpg/film__3930-the-lord-of-the-rings-the-fellowship-of-the-ring--hi_res-a207bd11.jpg)
 
 # Senhor dos Anéis

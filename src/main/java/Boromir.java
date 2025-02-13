@@ -10,7 +10,7 @@ public class Boromir extends Guerreiro implements Humano {
 
   @Override
   public void envelhecer() {
-    setConstituicao(2);
+    setConstituicao(getConstituicao() - 2);
   }
 
   public String toString() {
