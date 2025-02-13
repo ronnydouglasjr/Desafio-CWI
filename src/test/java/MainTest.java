@@ -1,5 +1,13 @@
+import classes.*;
+import exceptions.PersonagemJaEstaNoMapaException;
+import exceptions.PersonagemNaoEncontradoNoMapaException;
+import exceptions.PosicaoOcupadaException;
+import exceptions.SauronDominaOMundoException;
+import mapa.Mapa;
+
 import org.junit.Assert;
 import org.junit.Test;
+import simulador.Simulador;
 
 public class MainTest {
 
@@ -17,14 +25,14 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(0, aragorn);
-    mapa.inserir(2, gimli);
-    mapa.inserir(7, urukhai);
-    mapa.inserir(8, orc);
-    mapa.inserir(9, goblim);
+    mapa.inserirPersonagem(0, aragorn);
+    mapa.inserirPersonagem(2, gimli);
+    mapa.inserirPersonagem(7, urukhai);
+    mapa.inserirPersonagem(8, orc);
+    mapa.inserirPersonagem(9, goblim);
     simulador.simular();
 
-    Assert.assertEquals(resultadoEsperado, mapa.exibir());
+    Assert.assertEquals(resultadoEsperado, mapa.exibirTabuleiro());
   }
 
   @Test
@@ -43,15 +51,15 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(0, aragorn);
-    mapa.inserir(1, legolas);
-    mapa.inserir(7, orc);
-    mapa.inserir(9, goblim);
+    mapa.inserirPersonagem(0, aragorn);
+    mapa.inserirPersonagem(1, legolas);
+    mapa.inserirPersonagem(7, orc);
+    mapa.inserirPersonagem(9, goblim);
     simulador.simular();
 
-    System.out.println(mapa.exibir());
+    System.out.println(mapa.exibirTabuleiro());
 
-    Assert.assertEquals(resultadoEsperado, mapa.exibir());
+    Assert.assertEquals(resultadoEsperado, mapa.exibirTabuleiro());
   }
 
   @Test(expected = SauronDominaOMundoException.class)
@@ -67,10 +75,10 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(2, gimli);
-    mapa.inserir(7, urukhai);
-    mapa.inserir(8, orc);
-    mapa.inserir(9, goblim);
+    mapa.inserirPersonagem(2, gimli);
+    mapa.inserirPersonagem(7, urukhai);
+    mapa.inserirPersonagem(8, orc);
+    mapa.inserirPersonagem(9, goblim);
     simulador.simular();
   }
 
@@ -85,11 +93,11 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(0, gandalf);
-    mapa.inserir(9, saruman);
+    mapa.inserirPersonagem(0, gandalf);
+    mapa.inserirPersonagem(9, saruman);
     simulador.simular();
 
-    Assert.assertEquals(resultadoEsperado, mapa.exibir());
+    Assert.assertEquals(resultadoEsperado, mapa.exibirTabuleiro());
   }
 
   @Test
@@ -104,12 +112,12 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(0, legolas);
-    mapa.inserir(8, urukhai);
-    mapa.inserir(9, orc);
+    mapa.inserirPersonagem(0, legolas);
+    mapa.inserirPersonagem(8, urukhai);
+    mapa.inserirPersonagem(9, orc);
     simulador.simular();
 
-    Assert.assertEquals(resultadoEsperado, mapa.exibir());
+    Assert.assertEquals(resultadoEsperado, mapa.exibirTabuleiro());
   }
 
   @Test(expected = SauronDominaOMundoException.class)
@@ -125,10 +133,10 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(0, legolas);
-    mapa.inserir(7, orc);
-    mapa.inserir(8, urukhai);
-    mapa.inserir(9, saruman);
+    mapa.inserirPersonagem(0, legolas);
+    mapa.inserirPersonagem(7, orc);
+    mapa.inserirPersonagem(8, urukhai);
+    mapa.inserirPersonagem(9, saruman);
 
     simulador.simular();
   }
@@ -147,8 +155,8 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(0, boromir);
-    mapa.inserir(9, urukhai);
+    mapa.inserirPersonagem(0, boromir);
+    mapa.inserirPersonagem(9, urukhai);
     simulador.simular();
   }
 
@@ -163,11 +171,11 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(0, gandalf);
-    mapa.inserir(9, saruman);
+    mapa.inserirPersonagem(0, gandalf);
+    mapa.inserirPersonagem(9, saruman);
     simulador.simular();
 
-    System.out.println(mapa.exibir());
+    System.out.println(mapa.exibirTabuleiro());
   }
 
   @Test
@@ -179,10 +187,10 @@ public class MainTest {
     Mapa mapa = new Mapa();
     Simulador simulador = new Simulador(mapa);
 
-    mapa.inserir(0, legolas);
-    mapa.inserir(9, goblim);
+    mapa.inserirPersonagem(0, legolas);
+    mapa.inserirPersonagem(9, goblim);
     simulador.simular();
 
-    System.out.println(mapa.exibir());
+    System.out.println(mapa.exibirTabuleiro());
   }
 }
