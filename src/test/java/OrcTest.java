@@ -3,12 +3,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class OrcTest {
-    @Test
-    public void grunhidoDeOrc() {
-        Orc orc = new Orc();
+  @Test
+  public void grunhidoDeOrc() {
+    Orc orc = new Orc();
 
-        String gruinhidoEsperado = "Arrrggghhh";
+    String gruinhidoEsperado = "Arrrggghhh";
 
-        Assert.assertEquals(gruinhidoEsperado, orc.grunhido());
-    }
+    Assert.assertEquals(gruinhidoEsperado, orc.grunhido());
+  }
 }

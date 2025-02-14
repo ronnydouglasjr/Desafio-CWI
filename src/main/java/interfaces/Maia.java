@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface Maia {
-  Object ressucitar();
+  Object ressuscitar();
 
   String falar();
 }
