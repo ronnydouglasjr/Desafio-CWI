@@ -1,5 +1,3 @@
-package mapa;
-
 import classes_abstrata.Personagem;
 import exceptions.PersonagemJaEstaNoMapaException;
 import exceptions.PosicaoOcupadaException;
