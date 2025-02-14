@@ -14,10 +14,8 @@ public class Saruman extends Mago implements Maia {
   }
 
   @Override
-  public void ressucitar() {
-    if (this.getConstituicao() == 0) {
-      this.setConstituicao(this.getConstituicao());
-    }
+  public Object ressucitar() {
+      return null;
   }
 
   public String toString() {
