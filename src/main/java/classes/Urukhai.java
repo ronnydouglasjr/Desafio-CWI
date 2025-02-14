@@ -16,7 +16,7 @@ public class Urukhai extends Guerreiro implements Monstro, Humano {
 
   @Override
   public void envelhecer() {
-    setConstituicao(2);
+    setConstituicao(getConstituicao() - 2);
   }
 
   @Override
