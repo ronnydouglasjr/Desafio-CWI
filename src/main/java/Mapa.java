@@ -1,56 +1,74 @@
+import classes_abstrata.Personagem;
+import exceptions.PersonagemJaEstaNoMapaException;
+import exceptions.PosicaoOcupadaException;
+
 public class Mapa {
-    private Personagem[] casas;
+  private Personagem[] tabuleiro;
 
-    public Mapa() {
-        casas = new Personagem[10];
+  public Mapa() {
+    tabuleiro = new Personagem[10];
+  }
+
+  public Personagem[] getPersonagens() {
+    return tabuleiro;
+  }
+
+  public void removerPersonagem(int posicao) {
+    tabuleiro[posicao] = null;
+  }
+
+  public String exibirTabuleiro() {
+    StringBuilder sb = new StringBuilder("|");
+    for (Personagem personagem : tabuleiro) {
+      if (personagem == null) {
+        sb.append(" |");
+      } else if (personagem.getConstituicao() <= 0) {
+        sb.append(" ");
+        sb.append(personagem.toString().charAt(0));
+        sb.append(" |");
+      } else {
+        sb.append(personagem.toString().charAt(0)).append("|");
+      }
+    }
+    return sb.toString();
+  }
+
+  public String exibirVida() {
+    StringBuilder sb = new StringBuilder("|");
+    for (Personagem personagem : tabuleiro) {
+      if (personagem == null) {
+        sb.append(" |");
+      } else {
+        sb.append(personagem.getConstituicao()).append("|");
+      }
+    }
+    return sb.toString();
+  }
+
+  public void inserirPersonagem(int posicao, Personagem personagem)
+      throws PosicaoOcupadaException, PersonagemJaEstaNoMapaException {
+    if (tabuleiro[posicao] != null && tabuleiro[posicao].getConstituicao() > 0) {
+      throw new PosicaoOcupadaException("Posição " + posicao + " já está ocupada.");
     }
 
-    public Personagem[] getPersonagens() {
-        return casas;
+    for (Personagem personagens : tabuleiro) {
+      if (personagens != null
+          && personagens.equals(personagem)
+          && personagens.getConstituicao() > 0) {
+        throw new PersonagemJaEstaNoMapaException("Personagem " + personagem + " já está no mapa.");
+      }
     }
+    tabuleiro[posicao] = personagem;
+  }
 
-    public String exibir() {
-        StringBuilder sb = new StringBuilder("|");
-        for (Personagem personagem : casas) {
-            if (personagem == null || personagem.getConstituicao() <= 0) {
-                sb.append(" |");
-            } else {
-                sb.append(personagem.toString().charAt(0)).append("|");
-            }
-        }
-        return sb.toString();
+  public Personagem buscarPersonagem(int posicao) {
+    if (posicao < 0 || posicao >= tabuleiro.length) {
+      return null;
     }
-
-    public void inserir(int posicao, Personagem personagem) throws PosicaoOcupadaException, PersonagemJaEstaNoMapaException {
-        if (casas[posicao] != null && casas[posicao].getConstituicao() > 0) {
-            throw new PosicaoOcupadaException("Posição " + posicao + " já está ocupada.");
-        }
-
-        for (int i = 0; i < casas.length; i++) {
-            if (casas[i] != null && casas[i].equals(personagem) && casas[i].getConstituicao() > 0) {
-                throw new PersonagemJaEstaNoMapaException("Personagem " + personagem.toString() + " já está no mapa.");
-            }
-        }
-        casas[posicao] = personagem;
+    Personagem personagem = tabuleiro[posicao];
+    if (personagem != null) {
+      return personagem;
     }
-
-    public int buscarPosicao(Personagem personagem) throws PersonagemNaoEncontradoNoMapaException {
-        for (int i = 0; i < casas.length; i++) {
-            if (casas[i] != null && casas[i].equals(personagem) && casas[i].getConstituicao() > 0) {
-                return i;
-            }
-        }
-        throw new PersonagemNaoEncontradoNoMapaException("Personagem " + personagem.getNome() + " não encontrado no mapa.");
-    }
-
-    public Personagem buscarCasa(int posicao) {
-        if (posicao < 0 || posicao >= casas.length) {
-            return null;
-        }
-        Personagem personagem = casas[posicao];
-        if (personagem != null && personagem.getConstituicao() > 0) {
-            return personagem;
-        }
-        return null;
-    }
+    return null;
+  }
 }

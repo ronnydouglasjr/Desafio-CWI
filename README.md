@@ -1,6 +1,10 @@
-![A Sociedade do Anel](https://www.intofilm.org/intofilm-production/scaledcropped/1096x548https%3A/s3-eu-west-1.amazonaws.com/images.cdn.filmclub.org/film__3930-the-lord-of-the-rings-the-fellowship-of-the-ring--hi_res-a207bd11.jpg/film__3930-the-lord-of-the-rings-the-fellowship-of-the-ring--hi_res-a207bd11.jpg)
+# Diagrama do projeto 
+
+![Print do Projeto parte](docs/principal.png)
 
 # Senhor dos Anéis
+
+![A Sociedade do Anel](https://www.intofilm.org/intofilm-production/scaledcropped/1096x548https%3A/s3-eu-west-1.amazonaws.com/images.cdn.filmclub.org/film__3930-the-lord-of-the-rings-the-fellowship-of-the-ring--hi_res-a207bd11.jpg/film__3930-the-lord-of-the-rings-the-fellowship-of-the-ring--hi_res-a207bd11.jpg)
 
 O Senhor dos Anéis é um livro de alta fantasia, escrito pelo escritor britânico J. R. R. Tolkien entre 1937 e 1949. A história narra o conflito contra o mal que se alastra 
 pela Terra-média, através da luta de várias raças: Humanos, Anãos, Elfos, Orcs e Goblins, para evitar  que o Anel do Poder volte às mãos de seu criador Sauron, o Senhor Sombrio. 
@@ -267,7 +271,7 @@ PersonagemNaoEncontradoNoMapaException: se aquele personagem não existir no map
 
 ## Parte 3
 
-## Classes
+## classes
 
 Para que um personagem possa se movimentar e atacar, ele precisa ser de uma das 3 classes. Personagens que fazem parte da Sociedade do Anel se movimentam para a direita, outros 
 personagens se movimentam para a esquerda.
