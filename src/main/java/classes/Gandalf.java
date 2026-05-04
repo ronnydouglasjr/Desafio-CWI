@@ -14,10 +14,11 @@ public class Gandalf extends Mago implements Maia {
   }
 
   @Override
-  public void ressucitar() {
+  public Gandalf ressuscitar() {
     if (this.getConstituicao() == 0) {
-      this.setConstituicao(80);
+      return new Gandalf();
     }
+    return this;
   }
 
   public String toString() {
